@@ -1,1 +1,4 @@
-select * from  where
+select count(city) - count(distinct city) from station
+
+select city from station
+ WHERE City LIKE '[AEIOU]%[AEIOU]'
