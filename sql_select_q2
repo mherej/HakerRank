@@ -10,3 +10,8 @@ Your result cannot contain duplicates.
 
 select distinct city from station
 where right(city,1) in ('a', 'e', 'i', 'o', 'u')
+
+Write a query that prints a list of employee names (i.e.: the name attribute)
+from the Employee table in alphabetical order.
+
+select name from employee order by name asc
