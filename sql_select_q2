@@ -22,3 +22,10 @@ Sort your result by ascending employee_id.
 select name from employee
 where salary > 2000 and months <10
 order by employee_id asc
+
+//Query the list of CITY names from STATION that do not start with vowels and do not end with vowels.
+Your result cannot contain duplicates.
+
+select distinct city from station
+where left(city,1) not in ('a','o','i','e','u')
+and right(city,1) not in ('a','o','i','e','u')
