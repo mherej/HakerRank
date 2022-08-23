@@ -37,3 +37,7 @@ Given the CITY and COUNTRY tables,
 query the sum of the populations of all cities where the CONTINENT is 'Asia'.
 select sum(ci.population) as total_population
 from city as ci join country as cn on ci.countrycode = cn.code where cn.continent = 'asia';
+
+//Query the total population of all cities in CITY where District is California.
+
+select sum(population) from city where district = 'california'
