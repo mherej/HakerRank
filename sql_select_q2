@@ -43,3 +43,6 @@ from city as ci join country as cn on ci.countrycode = cn.code where cn.continen
 select sum(population) from city where district = 'california'
 //Query the average population of all cities in CITY where District is California.
 select avg(population) from city where district = 'california'
+
+//Query the average population for all cities in CITY, rounded down to the nearest integer.
+select round (avg(population),0) from city
