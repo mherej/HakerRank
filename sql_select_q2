@@ -57,3 +57,9 @@ select max(population) - min(population) from city
 //Write a query to find the maximum total earnings for all employees as well as the total number of employees who have maximum total earnings. Then print these values as  space-separated integers.
 
 select max(months * salary), count(employee_id) from employee where (months * salary) = (select max(months * salary) from employee)
+
+//Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than . Round your answer to  decimal places.
+SELECT TOP 1 CAST(LONG_W AS DECIMAL(10,4))
+FROM STATION
+WHERE LAT_N > 38.7780
+ORDER BY LAT_N ASC;
