@@ -83,3 +83,14 @@ Query the list of CITY names from STATION that do not start with vowels. Your re
 
 select  distinct city from station
 where left(city,1) not in ('a', 'e', 'i', 'o', 'u')
+
+//
+SELECT IIF(Grades.Grade < 8, NULL, Students.Name), Grades.Grade, Students.Marks
+
+FROM Students
+
+CROSS JOIN Grades
+
+WHERE Students.Marks BETWEEN Grades.Min_Mark AND Grades.Max_Mark
+
+ORDER BY Grades.Grade DESC, Students.Name, Students.Marks;
