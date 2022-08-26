@@ -77,3 +77,9 @@ and their respective average city populations (CITY.Population) rounded down to 
 select cn.continent, round (avg(c.population),0) from city as c
 join country as cn on c.countrycode = cn.code
 group by cn.continent
+
+//	Submissions	Leaderboard	Discussions
+Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+
+select  distinct city from station
+where left(city,1) not in ('a', 'e', 'i', 'o', 'u')
