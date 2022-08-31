@@ -94,3 +94,13 @@ CROSS JOIN Grades
 WHERE Students.Marks BETWEEN Grades.Min_Mark AND Grades.Max_Mark
 
 ORDER BY Grades.Grade DESC, Students.Name, Students.Marks;
+
+//Write a query to print the pattern P(20).
+DECLARE @currentRow AS INT;
+SET @currentRow= 0
+
+WHILE @currentRow < 20
+BEGIN
+    SELECT REPLICATE('* ', @currentRow + 1)
+    SET @currentRow = @currentRow + 1;
+END;
