@@ -12,6 +12,7 @@ select city, state from station
 
 select distinct city from station
 where id%2=0 // even ids
+
 // top competitors
 select h.hacker_id,h.name from hackers as h
 join submissions as s on h.hacker_id = s.hacker_id
@@ -19,3 +20,16 @@ join challenges as ch on s.challenge_id = ch.challenge_id
 join difficulty as d on ch.difficulty_level = d.difficulty_level
 where s.score = d.score
 group by h.hacker_id,h.name having count(h.hacker_id) >= 2 order by count(h.hacker_id) desc, h.hacker_id asc
+
+//. Write a query to print the id, age, coins_needed, and power of the wands that Ron's interested in, sorted in order of descending power. If more than one wand has same power,
+sort the result in order of descending age.
+SELECT w.id, wp.age, w.coins_needed, w.power
+FROM wands AS w
+LEFT JOIN wands_property AS wp
+ON w.code = wp.code
+WHERE wp.is_evil = 0 AND
+      w.coins_needed IN (SELECT MIN(wa.coins_needed)
+                         FROM wands AS wa
+                         WHERE wa.code = wp.code
+                         GROUP BY wa.power)
+ORDER BY power DESC, age DESC
