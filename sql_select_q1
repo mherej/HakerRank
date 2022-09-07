@@ -12,3 +12,10 @@ select city, state from station
 
 select distinct city from station
 where id%2=0 // even ids
+// top competitors
+select h.hacker_id,h.name from hackers as h
+join submissions as s on h.hacker_id = s.hacker_id
+join challenges as ch on s.challenge_id = ch.challenge_id
+join difficulty as d on ch.difficulty_level = d.difficulty_level
+where s.score = d.score
+group by h.hacker_id,h.name having count(h.hacker_id) >= 2 order by count(h.hacker_id) desc, h.hacker_id asc
